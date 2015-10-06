@@ -8,6 +8,8 @@ This is a viewer for all pull requests on the specific repos:
 ## Setup
 1. ```git clone https://github.com/gideonairex/github-viewer```
 2. ```npm install && bower install```
+3. ```node index.js```
+4. Open browser to http://localhost:5555
 
 ## How to
 1. Use __username__ and __accessToken__ from github use it as youre credentials
