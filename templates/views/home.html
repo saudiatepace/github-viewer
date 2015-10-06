@@ -1,0 +1,43 @@
+<h2>Pull Requests</h2>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+	{{# each repos}}
+  <div class="panel panel-default">
+		<div class="panel-heading" role="tab" id="{{this.name}}">
+      <h4 class="panel-title">
+				<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-{{this.name}}" aria-expanded="true" aria-controls="{{this.name}}">
+					{{name}}
+	</a>
+      </h4>
+    </div>
+		<div id="collapse-{{this.name}}" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="{{this.name}}">
+      <div class="panel-body">
+
+				<table class="table table-striped">
+					<th>
+						<td colspan=2> <button class="fetch-pr-status" id="fetch-{{this.name}}">Fetch status</button>
+					</th>
+				{{# each pulls}}
+					<tr>
+						<td>
+							<a href={{ html_url }} target="_blank">{{ title }}</a>
+							{{# with user}}
+							<p> {{ login }} </p>
+							{{/with}}
+						</td>
+						<td id="{{../name}}-{{number}}-status">
+							<span class="label label-default">Fetch</span>
+						</td>
+					</tr>
+					<tr>
+						<td colspan=2 id="{{../name}}-{{number}}">
+						</td>
+					</tr>
+				{{/each}}
+				</table>
+      </div>
+    </div>
+  </div>
+	{{/each}}
+
+</div>

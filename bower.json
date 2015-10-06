@@ -1,0 +1,24 @@
+{
+  "name": "github-viewer",
+  "main": "index.js",
+  "version": "0.0.0",
+  "authors": [
+    "Gideon Rosales <gideonrosales@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "bootstrap-select": "~1.7.4",
+    "jquery": "~2.1.4",
+    "font-awesome": "~4.4.0",
+    "fontawesome": "~4.4.0"
+  }
+}

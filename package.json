@@ -1,0 +1,22 @@
+{
+  "name": "github-viewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gideon Rosales <gideonrosales@gmail.com> (https://github.com/gideonairex)",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^2.10.2",
+    "good": "^6.4.0",
+    "good-console": "^5.1.0",
+    "handlebars": "^4.0.3",
+    "hapi": "^10.4.0",
+    "inert": "^3.0.2",
+    "lodash": "^3.10.1",
+    "request": "^2.64.0",
+    "vision": "^3.0.0"
+  }
+}
