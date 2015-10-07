@@ -35,7 +35,6 @@ module.exports = function ( request, reply ) {
 		} );
 
 	}
-
 	var promises = {};
 	_( config.repos ).forEach( function ( repo ) {
 		promises[ repo ] = getIssues( repo );

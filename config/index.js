@@ -6,13 +6,8 @@ module.exports = {
 		'observation-gateways',
 		'legacy-service',
 		'observation-service',
-		'template-service',
-		'email-service',
-		'file-service',
-		'avenue',
-		'lapin',
-		'lapin-mock',
-		'pathlint'
+		'sinet-admin-gateways',
+		'sinet-admin-tools'
 	]
 
 };
