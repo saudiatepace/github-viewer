@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+		"start" : "node .",
+		"bower" : "bower"
   },
   "author": "Gideon Rosales <gideonrosales@gmail.com> (https://github.com/gideonairex)",
   "license": "ISC",
@@ -16,7 +18,11 @@
     "hapi": "^10.4.0",
     "inert": "^3.0.2",
     "lodash": "^3.10.1",
+    "moment": "^2.10.6",
     "request": "^2.64.0",
     "vision": "^3.0.0"
+  },
+  "devDependencies": {
+    "bower": "^1.5.3"
   }
 }

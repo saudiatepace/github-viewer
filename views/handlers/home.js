@@ -2,6 +2,7 @@
 
 var _       = require( 'lodash' );
 var Promise = require( 'bluebird' );
+var config  = require( '../../config' );
 
 module.exports = function ( request, reply ) {
 
@@ -35,62 +36,25 @@ module.exports = function ( request, reply ) {
 
 	}
 
-	Promise.props( {
-		'observation-gateways' : getIssues( 'observation-gateways' ),
-		'legacy-service'       : getIssues( 'legacy-service' ),
-		'observation-service'  : getIssues( 'observation-service' ),
-		'template-service'     : getIssues( 'template-service' ),
-		'email-service'        : getIssues( 'email-service' ),
-		'file-service'         : getIssues( 'file-service' ),
-		'avenue'               : getIssues( 'avenue' ),
-		'lapin'                : getIssues( 'lapin' ),
-		'lapin-mock'           : getIssues( 'lapin-mock' ),
-		'pathlint'             : getIssues( 'pathlint' )
-	} )
-	.then( function ( repos ) {
+	var promises = {};
+	_( config.repos ).forEach( function ( repo ) {
+		promises[ repo ] = getIssues( repo );
+	} ).value();
+
+	Promise.props( promises )
+	.then( function ( resultRepos ) {
+
+		var repos = [];
+
+		_( config.repos ).forEach( function ( repo ) {
+			repos.push( {
+				'name' : repo,
+				'pulls' : resultRepos[ repo ]
+			} );
+		} ).value();
+
 		var data = {
-			'repos' : [
-				{
-					'name' : 'observation-gateways',
-					'pulls' : repos[ 'observation-gateways' ]
-				},
-				{
-					'name' : 'legacy-service',
-					'pulls' : repos[ 'legacy-service' ]
-				},
-				{
-					'name' : 'observation-service',
-					'pulls' : repos[ 'observation-service' ]
-				},
-				{
-					'name' : 'template-service',
-					'pulls' : repos[ 'template-service' ]
-				},
-				{
-					'name' : 'email-service',
-					'pulls' : repos[ 'email-service' ]
-				},
-				{
-					'name' : 'file-service',
-					'pulls' : repos[ 'file-service' ]
-				},
-				{
-					'name' : 'avenue',
-					'pulls' : repos[ 'avenue' ]
-				},
-				{
-					'name' : 'lapin',
-					'pulls' : repos[ 'lapin' ]
-				},
-				{
-					'name' : 'lapin-mock',
-					'pulls' : repos[ 'lapin-mock' ]
-				},
-				{
-					'name' : 'pathlint',
-					'pulls' : repos[ 'pathlint' ]
-				},
-			]
+			'repos' : repos
 		};
 
 		reply.view( 'home', data, { 'layout' : 'home' } );

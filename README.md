@@ -1,14 +1,11 @@
 # github-viewer
-This is a viewer for all pull requests on the specific repos:
-
-1. __observation-gateways__
-2. __legacy-service__
-3. __observation-service__
+This is a viewer for all pull requests on the specified repos. Just
+update config/index.js and add the repos.
 
 ## Setup
 1. ```git clone https://github.com/gideonairex/github-viewer```
-2. ```npm install && bower install```
-3. ```node index.js```
+2. ```npm install && npm run bower -- install```
+3. ```npm start```
 4. Open browser to http://localhost:5555
 
 ## How to

@@ -15,15 +15,6 @@ $( document ).ready( function () {
 				} )
 				.done( function ( comments ) {
 
-					console.log( comments );
-					//var html = '<table class="table table-striped">';
-					//comments.forEach( function ( comment ) {
-						//html += '<tr>' + '<td>' + comment.user.login + '</td></tr>';
-						//html += '<tr>' + '<td>' + comment.body + '</td></tr>';
-					//} );
-					//html += '</table>';
-					//$( '#' + repo + '-' + pr.number ).html( html );
-
 					if ( comments.length > 0 ) {
 						if( comments[ comments.length - 1 ].body.indexOf( '[TL:Ready]') > -1 ){
 							$( '#' + repo + '-' + pr.number + '-status' ).html( '<span class="label label-success">Ready</span> ' );
@@ -32,6 +23,7 @@ $( document ).ready( function () {
 						} else {
 							$( '#' + repo + '-' + pr.number + '-status' ).html( '<span class="label label-danger">Need to fix</span> ' );
 						}
+						$( '#' + repo + '-' + pr.number + '-time' ).html( moment( comments[ comments.length - 1 ].created_at ).fromNow() );
 					} else {
 							$( '#' + repo + '-' + pr.number + '-status' ).html( '<span class="label label-default">Need verification</span> ' );
 					}
