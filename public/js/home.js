@@ -25,9 +25,9 @@ $( document ).ready( function () {
 					//$( '#' + repo + '-' + pr.number ).html( html );
 
 					if ( comments.length > 0 ) {
-						if( comments[ comments.length - 1 ].body === '[TL:Ready]' ){
+						if( comments[ comments.length - 1 ].body.indexOf( '[TL:Ready]') > -1 ){
 							$( '#' + repo + '-' + pr.number + '-status' ).html( '<span class="label label-success">Ready</span> ' );
-						} else if( comments[ comments.length - 1 ].body === '[D:Ready]' ){
+						} else if( comments[ comments.length - 1 ].body.indexOf( '[D:Ready]') > -1){
 							$( '#' + repo + '-' + pr.number + '-status' ).html( '<span class="label label-info">Updated</span> ' );
 						} else {
 							$( '#' + repo + '-' + pr.number + '-status' ).html( '<span class="label label-danger">Need to fix</span> ' );
